@@ -5,5 +5,11 @@
 
 // TODO: entity components:
 
+typedef struct Box {
+    v2      pos;
+    v2      vel;
+    v2      rad;
+} Box;
+
 #endif
 
