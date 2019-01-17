@@ -1,6 +1,6 @@
 #include "ats/ats_base.h"
 #include "ats/ats_math.h"
-#include "ats/ats_platform_glfw.h"
+#include "ats/ats_sprite_engine.h"
 //
 #include "tilemap.h"
 #include "components.h"
@@ -10,6 +10,8 @@
 int main() {
     platform_init("ARPG!!", 800, 600, 8);
     platform.mouse.visible = true;
+
+    se_init();
 
     GameState* gs = calloc(1, sizeof *gs);
 
