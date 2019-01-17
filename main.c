@@ -1,6 +1,8 @@
 #include "ats/ats_base.h"
 #include "ats/ats_platform_glfw.h"
+//
 #include "tilemap.h"
+#include "components.h"
 #include "entity.h"
 #include "game.h"
 
