@@ -116,7 +116,7 @@ static Sprite se_sprite_load(const char* filename, int sx, int sy, bool smooth) 
 
     s.texture = texture_load(filename, smooth);
 
-    s.texture_size[0] = (float)s.texture.width / (float)s.texture.height;
+    s.texture_size[0] = (float)s.texture.width  / (float)s.texture.height;
     s.texture_size[1] = (float)s.texture.height / (float)s.texture.width;
 
     s.sprite_size[0] = (float)sx / (float)s.texture.width;

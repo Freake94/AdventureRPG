@@ -17,6 +17,10 @@ int main() {
 
     game_init(gs);
 
+    Sprite sprite = se_sprite_load("assets/sprites/character.png", 32, 32, false);
+
+    se_sprite_bind(&sprite);
+
     while (!platform.close) {
         float t = platform.time.delta;
 
@@ -28,6 +32,10 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         game_render(gs);
+
+        se_sprite_push(&sprite, 0.0f, 0.0f, 0.0f, 0.5f, -0.5f, 0, 0);
+
+        se_render_buffer();
 
         platform_update();
     }
