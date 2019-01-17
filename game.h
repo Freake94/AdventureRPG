@@ -8,7 +8,7 @@ typedef struct GameState {
 } GameState;
 
 static void game_init(GameState* gs) {
-    // @TODO: init shit!
+    tilemap_generate_random(&gs->map);
 }
 
 static void game_update(GameState* gs, float t) {
@@ -16,7 +16,17 @@ static void game_update(GameState* gs, float t) {
 }
 
 static void game_render(GameState* gs) {
-    // @TODO: render shit!
+    ce_set_view(
+            8.0f, 8.0f, 16.0f,
+            8.0f, 8.0f, 0.0f,
+            0.0f,  1.0f, 0.0f,
+            60.0f, 0.1f, 64.0f);
+
+    ce_set_light(0.0f, 0.0f, 16.0f, 1.0f, 1.0f, 1.0f);
+
+    tilemap_render(&gs->map);
+
+    ce_render_squares();
 }
 
 #endif
