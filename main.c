@@ -11,6 +11,8 @@ int main() {
         if (platform.keyboard.pressed[GLFW_KEY_ESCAPE])
             platform.close = true;
 
+        glClear(GL_COLOR_BUFFET_BIT | GL_DEPTH_BUFFER_BIT);
+
         platform_update();
     }
 }
