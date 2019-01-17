@@ -29,5 +29,12 @@ static void tilemap_generate_random(Tilemap* map) {
     }
 }
 
+static void tilemap_render(const Tilemap* map) {
+    for (int y = 0; y < TILEMAP_HEIGHT; ++y) {
+        for (int x = 0; x < TILEMAP_WIDTH; ++x) {
+        }
+    }
+}
+
 #endif
 
