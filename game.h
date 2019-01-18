@@ -29,14 +29,14 @@ static void game_init(GameState* gs) {
 }
 
 static void game_update(GameState* gs, float t) {
-    camera_update(&gs->camera, gs->player.box[0].pos, t);
+    Box* player_box = &gs->player.box[0];
 
     gs->input = chk_button_inputs();
 
+    camera_update(&gs->camera, player_box->pos, t);
+
     // handle player controlls:
     {
-        Box* player_box = &gs->player.box[0];
-
         if (chkbit(gs->input, BUTTON_MOVE_N)) player_box->vel[1] += 4.0f * t;
         if (chkbit(gs->input, BUTTON_MOVE_S)) player_box->vel[1] -= 4.0f * t;
         if (chkbit(gs->input, BUTTON_MOVE_W)) player_box->vel[0] -= 4.0f * t;
@@ -48,7 +48,7 @@ static void game_update(GameState* gs, float t) {
 }
 
 static void game_render(GameState* gs) {
-    tilemap_render(&gs->map);
+    tilemap_render(&gs->map, gs->player.box[0].pos);
 
     box_render(gs->player.box, gs->player.count, v4(1.0f, 0.5f, 0.0f, 1.0));
     box_render(gs->slime.box, gs->slime.count, v4(0.0f, 1.0f, 1.0f, 1.0));

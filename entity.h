@@ -7,6 +7,15 @@
 #define PLAYER_SIZE v2(0.3, 0.3)
 #define ENEMY_MAX 16
 
+// ========================================================= ENTITY ================================================ //
+
+enum {
+    ENTITY_NONE,
+    ENTITY_PLAYER,
+    ENTITY_SLIME,
+    ENTITY_COUNT
+};
+
 // ========================================================= PLAYER ================================================ //
 
 typedef struct Player {
@@ -36,19 +45,21 @@ typedef struct Slime {
     //
     Box     box     [ENEMY_MAX];
     Health  health  [ENEMY_MAX];
+    Brain   brain   [ENEMY_MAX];
 } Slime;
 
 static void slime_create(Slime* slime, const v2 pos) {
     int i = slime->count++;
-
     slime->box[i]    = box_create(pos, v2(0, 0), v2(0.3f, 0.3f));
     slime->health[i] = health_create(i);
+    slime->brain[i]  = brain_create();
 }
 
 static void slime_destroy(Slime* slime, int i) {
     --slime->count;
     slime->box[i]    = slime->box[slime->count];
     slime->health[i] = slime->health[slime->count];
+    slime->brain[i]  = slime->brain[slime->count];
 }
 
 
