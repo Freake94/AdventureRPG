@@ -3,7 +3,7 @@
 #ifndef __COMPONENTS_H__
 #define __COMPONENTS_H__
 
-// TODO: entity components:
+// TODO(AIDSTON): entity components:
 
 /* BOX */
 
@@ -23,7 +23,7 @@ static Box box_create(const v2 pos, const v2 vel, const v2 rad) {
 
 static void box_render(Box *box, int count, const v4 color) {
     ce_set_color4v(color);
-
+    
     for(int i = 0; i < count; ++i)
         ce_push_box(box[i].pos[0], box[i].pos[1], 0, box[i].rad[0], box[i].rad[1], 0.3f);
 }

@@ -16,7 +16,7 @@ typedef struct Player {
 
 static void player_create(Player* player, const v2 pos) {
     int i = player->count++;
-
+    
     player->box[i]    = box_create(pos, v2(0, 0), PLAYER_SIZE);
     player->health[i] = health_create(i);
 }
