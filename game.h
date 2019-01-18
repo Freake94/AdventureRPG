@@ -28,6 +28,9 @@ static void game_init(GameState* gs) {
 
 static void game_update(GameState* gs, float t) {
     camera_update(&gs->camera, gs->player.box[0].pos, t);
+
+    box_update(gs->player.box, gs->player.count, 2.0f, t);
+    box_update(gs->slime.box, gs->player.count, 2.0f, t);
 }
 
 static void game_render(GameState* gs) {
