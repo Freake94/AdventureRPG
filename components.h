@@ -3,8 +3,6 @@
 #ifndef __COMPONENTS_H__
 #define __COMPONENTS_H__
 
-// TODO(AIDSTON): entity components:
-
 // ======================================================  BOX ==================================================== //
 
 typedef struct Box {
