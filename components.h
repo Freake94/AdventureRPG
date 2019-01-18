@@ -21,12 +21,19 @@ static Box box_create(const v2 pos, const v2 vel, const v2 rad) {
     return box;
 }
 
+static void box_render(Box *box, int count, const v4 color) {
+    ce_set_color4v(color);
+
+    for(int i = 0; i < count; ++i)
+        ce_push_box(box[i].pos[0], box[i].pos[1], 0, box[i].rad[0], box[i].rad[1], 0.3f);
+}
+
 /* Health */
 
 typedef struct Health {
-    float val;
-    float max;
-    int dead;
+    float   val;
+    float   max;
+    int     dead;
 } Health;
 
 static Health health_create(float val) {
@@ -36,17 +43,14 @@ static Health health_create(float val) {
     return health;
 }
 
-static void mark_dead(Health *health, int count) {
+static void health_mark_dead(Health *health, int count) {
     for(int i = 0; i < count; ++i) {
-        if(health[i].val <= 0) {
-            health[i].dead = 1;
-        }
+        if(health[i].val <= 0) health[i].dead = 1;
     }
 }
 
-// TODO(Blüch): Equipment System
+// TODO(Blöch): Equipment System
 
-// TODO(Blüch): Inventory System
+// TODO(Blöch): Inventory System
 
 #endif
-

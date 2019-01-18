@@ -26,7 +26,7 @@ static void game_update(GameState* gs, float t) {
 static void game_render(GameState* gs) {
     tilemap_render(&gs->map);
 
-    entity_render(gs->player.box, gs->player.count);
+    box_render(gs->player.box, gs->player.count, v4(1.0f, 0.5f, 0.0f, 1.0));
 
     ce_render_squares();
 }

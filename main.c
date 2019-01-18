@@ -30,4 +30,3 @@ int main() {
         platform_update();
     }
 }
-

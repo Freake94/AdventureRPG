@@ -9,25 +9,29 @@
 
 typedef struct Player {
     int count;
-    Box box[PLAYER_MAX];
+    //
+    Box     box     [PLAYER_MAX];
+    Health  health  [PLAYER_MAX];
 } Player;
 
-void player_create(Player *player, const v2 pos) {
-    player->box[player->count] = box_create(pos, v2(0, 0), PLAYER_SIZE);
-    player->count++;
+static void player_create(Player* player, const v2 pos) {
+    int i = player->count++;
+
+    player->box[i]    = box_create(pos, v2(0, 0), PLAYER_SIZE);
+    player->health[i] = health_create(i);
+}
+
+static void player_destroy(Player* player, int i) {
+    --player->count;
+    player->box[i]    = player->box[player->count];
+    player->health[i] = player->health[player->count];
 }
 
 typedef struct Slime {
     int count;
-    Box box[ENEMY_MAX];
-    int dead;
+    //
+    Box     box     [ENEMY_MAX];
+    Health  health  [ENEMY_MAX];
 } Slime;
-
-static void entity_render(Box *box, int count) {
-    ce_set_color4f(1.0f, 1.0f, 1.0f, 1.0f);
-    for(int i = 0; i < count; ++i) {
-        ce_push_box(box[i].pos[0], box[i].pos[1], 0, box[i].rad[0], box[i].rad[1], .3);
-    }
-}
 
 #endif
