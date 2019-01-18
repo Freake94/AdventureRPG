@@ -29,7 +29,7 @@ static void player_destroy(Player* player, int i) {
     player->health[i] = player->health[player->count];
 }
 
-// ========================================================= PLAYER ================================================ //
+// ========================================================= SLIME ================================================ //
 
 typedef struct Slime {
     int count;
