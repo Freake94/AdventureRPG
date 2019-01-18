@@ -4,6 +4,7 @@
 #define __GAME_H__
 
 #include "camera.h"
+#include "controls.h"
 
 typedef struct GameState {
     Camera      camera;
@@ -12,6 +13,7 @@ typedef struct GameState {
     Slime       slime;
     // map:
     Tilemap     map;
+    int input;
 } GameState;
 
 static void game_init(GameState* gs) {
@@ -28,7 +30,7 @@ static void game_init(GameState* gs) {
 
 static void game_update(GameState* gs, float t) {
     camera_update(&gs->camera, gs->player.box[0].pos, t);
-
+    gs->input = chk_button_inputs();
     box_update(gs->player.box, gs->player.count, 2.0f, t);
     box_update(gs->slime.box, gs->player.count, 2.0f, t);
 }
