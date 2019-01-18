@@ -30,9 +30,21 @@ static void game_init(GameState* gs) {
 
 static void game_update(GameState* gs, float t) {
     camera_update(&gs->camera, gs->player.box[0].pos, t);
+
     gs->input = chk_button_inputs();
-    box_update(gs->player.box, gs->player.count, 2.0f, t);
-    box_update(gs->slime.box, gs->player.count, 2.0f, t);
+
+    // handle player controlls:
+    {
+        Box* player_box = &gs->player.box[0];
+
+        if (chkbit(gs->input, BUTTON_MOVE_N)) player_box->vel[1] += 4.0f * t;
+        if (chkbit(gs->input, BUTTON_MOVE_S)) player_box->vel[1] -= 4.0f * t;
+        if (chkbit(gs->input, BUTTON_MOVE_W)) player_box->vel[0] -= 4.0f * t;
+        if (chkbit(gs->input, BUTTON_MOVE_E)) player_box->vel[0] += 4.0f * t;
+    }
+
+    box_update(gs->player.box, gs->player.count, 4.0f, t);
+    box_update(gs->slime.box, gs->player.count, 4.0f, t);
 }
 
 static void game_render(GameState* gs) {

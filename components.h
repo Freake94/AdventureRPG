@@ -21,7 +21,7 @@ static Box box_create(const v2 pos, const v2 vel, const v2 rad) {
 
 static void box_render(Box* box, int count, const v4 color) {
     ce_set_color4v(color);
-    
+
     for(int i = 0; i < count; ++i)
         ce_push_box(box[i].pos[0], box[i].pos[1], 0, box[i].rad[0], box[i].rad[1], 0.3f);
 }
@@ -76,8 +76,8 @@ typedef struct Inventory {
 
 enum {
     BRAIN_IDLE,
-    BRAIN_GO_POS,
-    BRAIN_ATTACK_POS,
+    BRAIN_GO,
+    BRAIN_ATTACK,
     BRAIN_COUNT
 };
 
@@ -92,7 +92,10 @@ static Brain brain_create() {
     return brain;
 }
 
-static void brain_update_state(Brain* brain, int count) {
+static void brain_update_state(Brain* brain, const Box* box, int count) {
+    for (int i = 0; i < count; ++i) {
+        //
+    }
 }
 
 #endif

@@ -35,9 +35,9 @@ static void tilemap_render(const Tilemap* map) {
             const Tile* tile = &map->tiles[y][x];
             
             switch (tile->type) {
-                case TILE_WATER:  ce_set_color4f(0.0f, 0.1f, 1.0f, 1.0f); break;
-                case TILE_GROUND: ce_set_color4f(0.0f, 1.0f, 0.0f, 1.0f); break;
-                case TILE_TREE:   ce_set_color4f(0.0f, 0.5f, 0.0f, 1.0f); break;
+                case TILE_WATER:  ce_set_color4f(0.2f, 0.2f, 0.2f, 1.0f); break;
+                case TILE_GROUND: ce_set_color4f(0.3f, 0.3f, 0.3f, 1.0f); break;
+                case TILE_TREE:   ce_set_color4f(0.4f, 0.4f, 0.4f, 1.0f); break;
             }
             
             ce_push_cube(x + 0.5f, y + 0.5f, -0.01f, 0.5f);
