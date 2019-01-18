@@ -77,6 +77,7 @@ typedef struct Inventory {
 enum {
     BRAIN_IDLE,
     BRAIN_GO_POS,
+    BRAIN_ATTACK_POS,
     BRAIN_COUNT
 };
 
@@ -84,5 +85,14 @@ typedef struct Brain {
     int     state;
     v2      pos;
 } Brain;
+
+static Brain brain_create() {
+    Brain brain = {0};
+    brain.state = BRAIN_IDLE;
+    return brain;
+}
+
+static void brain_update_state(Brain* brain, int count) {
+}
 
 #endif
