@@ -3,9 +3,7 @@
 #ifndef __COMPONENTS_H__
 #define __COMPONENTS_H__
 
-// TODO: entity components:
-
-/* BOX */
+// ======================================================  BOX ==================================================== //
 
 typedef struct Box {
     v2      pos;
@@ -28,7 +26,7 @@ static void box_render(Box *box, int count, const v4 color) {
         ce_push_box(box[i].pos[0], box[i].pos[1], 0, box[i].rad[0], box[i].rad[1], 0.3f);
 }
 
-/* Health */
+// ======================================================  HEALTH ==================================================== //
 
 typedef struct Health {
     float   val;
@@ -49,8 +47,22 @@ static void health_mark_dead(Health *health, int count) {
     }
 }
 
-// TODO(Blöch): Equipment System
+// ======================================================  EQUIPMENT ==================================================== //
 
-// TODO(Blöch): Inventory System
+typedef struct Equipment {
+    // @TODO: do equipment shit:
+} Equipment;
+
+// ======================================================= INVENTORY ==================================================== //
+
+typedef struct Inventory {
+    // @TODO: do inventory shit:
+} Inventory;
+
+// ======================================================= BRAIN ==================================================== //
+
+typedef struct Brain {
+    // @TODO: do brain shit:
+} Brain;
 
 #endif
