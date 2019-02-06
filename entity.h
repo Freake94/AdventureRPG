@@ -62,5 +62,18 @@ static void slime_destroy(Slime* slime, int i) {
     slime->brain[i]  = slime->brain[slime->count];
 }
 
+static void slime_update(Slime* slime, float t, Player* player) {
+    Box* player_box = &player->box[0];
+    for(int i = 0; i < slime->count; i++) {
+        Box* slime_box = &slime->box[i];
+        
+        float x = player_box->pos[0] - slime_box->pos[0];
+        float y = player_box->pos[1] - slime_box->pos[1];
+        slime_box->vel[0] = x;
+        slime_box->vel[1] = y;
+        ns2v(slime_box->vel, slime_box->vel, t * 400);
+    }
+}
+
 
 #endif
